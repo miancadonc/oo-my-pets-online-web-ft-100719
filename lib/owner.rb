@@ -34,22 +34,22 @@ class Owner
     Dog.all.select{|dog| dog.owner == self}
   end
   
- # def buy_cat(new_cat)
-  #  Cat.all.find{|kitty| kitty.name == new_cat}.owner = self
-  #end
-  
-  #def buy_dog(new_dog)
-   # Dog.all.find{|dog| dog.name == new_dog} #.owner #= self
-    #binding.pry
-  #end
-  
   def buy_cat(new_cat)
-    Cat.new(new_cat, self)
+    Cat.all.find{|kitty| kitty.name == new_cat}.owner = self
   end
   
-   def buy_dog(new_dog)
-    Dog.new(new_dog, self)
+  def buy_dog(new_dog)
+    Dog.all.find{|dog| dog.name == new_dog}.owner = self
+    binding.pry
   end
+  
+  # def buy_cat(new_cat)
+  #   Cat.new(new_cat, self)
+  # end
+  
+  # def buy_dog(new_dog)
+  #   Dog.new(new_dog, self)
+  # end
   
   def walk_dogs
     self.dogs.each{|dog| dog.mood = "happy"}
